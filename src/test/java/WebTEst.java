@@ -3,7 +3,6 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.Cookie;
@@ -17,7 +16,7 @@ public class WebTEst extends  Start{
    @Before
     public void start(){
        // driver = new ChromeDriver();
-       WebDriver driver = new FirefoxDriver();
+       driver = new FirefoxDriver();
        wait = new WebDriverWait(driver, 10);
       driver.manage().addCookie(new Cookie("test", "test"));
       Cookie testCookie = driver.manage().getCookieNamed("test");
