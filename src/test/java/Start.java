@@ -7,9 +7,6 @@ import org.openqa.selenium.WebElement;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-import java.io.ByteArrayInputStream;
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
@@ -42,7 +39,7 @@ public class Start {
             assertEquals(String.valueOf(By.xpath("//table//tr/td[3]/h1")), true, true);
         }
         while (i >0 && i<=17 ) ;
-
-    }}
+driver.quit();
+    } }
 
 
