@@ -18,9 +18,10 @@ public class Reg {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("http://localhost/litecart/en/");
+
+        //registation
         driver.findElement(By.xpath("//div/form/table//tr[5]/td/a")).click();
         driver.findElement(By.xpath("//div[2]//div[2]//h1")).getText();
-        //assert Assert.assertTrue("Create Account", true);
         driver.findElement(By.xpath("//div//table//tr[1]/td[1]/input")).getAttribute("name");
         driver.findElement(By.xpath("//div//table//tr[2]/td[1]/input")).sendKeys("Natali");
         driver.findElement(By.xpath("//div//table//tr[2]/td[2]/input")).sendKeys("Braznik");
@@ -28,7 +29,6 @@ public class Reg {
         driver.findElement(By.xpath("//div//table//tr[4]/td[1]/input")).sendKeys("04107");
         driver.findElement(By.xpath("//div//table//tr[4]/td[2]/input")).sendKeys("Kyiv");
         driver.findElement(By.xpath("//div//table//tr[5]/td[1]/span[2]/span[1]/span")).click();
-        //driver.findElement(By.xpath("//span/span/span[1]/input")).sendKeys("Ukraine");
        driver.findElement(By.xpath("//body//span[2]/ul/li[222]")).click();
                 driver.findElement(By.xpath("//div//table//tr[6]/td[1]/input")).sendKeys("natali.butko.dev@gmail.com");
         driver.findElement(By.xpath("//div//table//tr[6]/td[2]/input")).sendKeys("+3806697929492");
@@ -38,7 +38,16 @@ public class Reg {
         driver.findElement(By.xpath("//div//table//tr[7]/td[1]/label/input")).click();
        driver.findElement(By.xpath("//div//table//tr[8]/td[1]/input")).sendKeys("Zxcvbn123!");
         driver.findElement(By.xpath("//div//table//tr[8]/td[2]/input")).sendKeys("Zxcvbn123!");
-        driver.findElement(By.xpath("//div//form/table//tr[10]/td/button")).click();
+        driver.findElement(By.xpath("//div//table//tr[9]/td/button")).click();
 
+        //logout
+        driver.findElement(By.xpath("//div//aside//div/ul/li[4]/a")).click();
+        //login
+        driver.findElement(By.xpath("//div//aside//table/tbody/tr[1]/td/input")).sendKeys("");
+        driver.findElement(By.xpath("//div/aside/div//table//tr[2]/td/input")).sendKeys("");
+        driver.findElement(By.xpath("//div/form/table//tr[4]/td/span/button[1]")).click();
+
+        //relogout
+        driver.findElement(By.xpath("//div/aside//div/ul/li[4]/a")).click();
     }
 }
