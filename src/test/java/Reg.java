@@ -18,7 +18,8 @@ public class Reg {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("http://localhost/litecart/en/");
-
+        long stamp = new java.util.Date().toInstant().toEpochMilli();
+        String email = "natalk.dev" + stamp + "@gmail.com";
         //registation
         driver.findElement(By.xpath("//div/form/table//tr[5]/td/a")).click();
         driver.findElement(By.xpath("//div[2]//div[2]//h1")).getText();
@@ -29,21 +30,21 @@ public class Reg {
         driver.findElement(By.xpath("//div//table//tr[4]/td[1]/input")).sendKeys("04107");
         driver.findElement(By.xpath("//div//table//tr[4]/td[2]/input")).sendKeys("Kyiv");
         driver.findElement(By.xpath("//div//table//tr[5]/td[1]/span[2]/span[1]/span")).click();
-       driver.findElement(By.xpath("//body//span[2]/ul/li[222]")).click();
-                driver.findElement(By.xpath("//div//table//tr[6]/td[1]/input")).sendKeys("natalk.dev@gmail.com");
+        driver.findElement(By.xpath("//body//span[2]/ul/li[222]")).click();
+        driver.findElement(By.xpath("//div//table//tr[6]/td[1]/input")).sendKeys(email);
         driver.findElement(By.xpath("//div//table//tr[6]/td[2]/input")).sendKeys("+3806697929492");
         driver.findElement(By.xpath("//div/form/table//tr[5]/td[2]/select")).isSelected();
-          driver.findElement(By.xpath("//div/form/table//tr[5]/td[2]/select")).click();
-               driver.findElement(By.xpath("//div//table//tr[7]/td[1]/label/input")).isSelected();
+        driver.findElement(By.xpath("//div/form/table//tr[5]/td[2]/select")).click();
+        driver.findElement(By.xpath("//div//table//tr[7]/td[1]/label/input")).isSelected();
         driver.findElement(By.xpath("//div//table//tr[7]/td[1]/label/input")).click();
-       driver.findElement(By.xpath("//div//table//tr[8]/td[1]/input")).sendKeys("Zxcvb15525!");
+        driver.findElement(By.xpath("//div//table//tr[8]/td[1]/input")).sendKeys("Zxcvb15525!");
         driver.findElement(By.xpath("//div//table//tr[8]/td[2]/input")).sendKeys("Zxcvb15525!");
         driver.findElement(By.xpath("//div//table//tr[9]/td/button")).click();
 
         //logout
         driver.findElement(By.xpath("//div//aside//div/ul/li[4]/a")).click();
         //login
-        driver.findElement(By.xpath("//div//aside//table//tr[1]/td/input")).sendKeys("natalk.dev@gmail.com");
+        driver.findElement(By.xpath("//div//aside//table//tr[1]/td/input")).sendKeys(email);
         driver.findElement(By.xpath("//div/aside//table//tr[2]/td/input")).sendKeys("Zxcvb15525!");
         driver.findElement(By.xpath("//div/form/table//tr[4]/td/span/button[1]")).click();
 
