@@ -33,11 +33,11 @@ public class CheckNamePage {
         driver.findElement(By.xpath("//div[2]//div[2]/strong"));     //price 1
         Assert.assertEquals(  driver.findElement(By.xpath("//div[2]/div[4]//ul/li/a[1]/div[4]/strong")).getText(),driver.findElement(By.xpath("//div[2]//div[2]/strong")).getText() );
 //v
-        driver.findElement(By.xpath("//div[2]/div[2]/div[2]/s")).getAttribute("color");
+      Assert.assertTrue(driver.findElement(By.xpath("//div[2]/div[2]/div[2]/s")).getCssValue("strike"), true);
 
 
 //g
-        driver.findElement(By.xpath("//div[2]/div[2]/strong")).getAttribute("color");
+      Assert.assertTrue(driver.findElement(By.xpath("//div[2]/div[2]/strong")).getCssValue("color"),true);
 
 //d
         driver.findElement(By.xpath("//div[2]/div[2]/div[2]/s"));
