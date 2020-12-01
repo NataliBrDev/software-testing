@@ -18,8 +18,8 @@ public class AddPositionOnBox {
         driver.get("https://litecart.stqa.ru/en/");
         driver.manage().window().maximize();
 
-int i;
-for (i=1; i=3 ; i++) {
+
+for (int i = 1; i == 3; i++) {
     driver.findElement(By.xpath("//div[3]/div/ul/li["+i+"]/a[1]")).click();
     driver.findElement(By.xpath("//div[5]//table//tr/td/button")).click();
     driver.wait(10);
