@@ -43,8 +43,11 @@ public class AddPosition {
             driver.findElement(By.xpath("//div/table//tr/td[3]//table//tr[8]/td/table//tr/td[1]/input")).sendKeys("34");
             driver.findElement(By.xpath("//div/table//tr/td[3]//table//tr[8]/td/table//tr/td[2]/select")).click();
             driver.findElement(By.xpath("//div/table//tr/td[3]//table//tr[8]/td/table//tr/td[3]/select")).click();
-            driver.findElement(By.xpath("//div/table//tr/td[3]//table//tr[9]/td/table//tr[1]/td/input")).click();  //file
-            driver.findElement(By.id("fake_pic")).sendKeys("/home/natali/IdeaProjects/WebTestAQA/resources/1.jpg");
+            var elem = driver.findElement(By.xpath("//table//tr[9]/td/table//tr[1]/td/input"));  //file
+
+            File file = new File("resources/1.jpg");
+            elem.sendKeys(file.getAbsolutePath());
+            //driver.findElement(By.id("fake_pic")).sendKeys(file.getAbsolutePath());
 
 
             driver.findElement(By.xpath("//div/table//tr/td[3]//table//tr[10]/td/input")).sendKeys("13122020");
@@ -76,7 +79,6 @@ public class AddPosition {
         }
 
         driver.findElement(By.xpath("//div//tr/td[1]//ul/li[2]/a/span[2]")).click();
-        driver.findElement(By.xpath(""));
 
 
     }

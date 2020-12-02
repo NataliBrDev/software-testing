@@ -19,17 +19,18 @@ public class AddPositionOnBox {
         driver.manage().window().maximize();
 
 
-for (int i = 1; i == 3; i++) {
+for (int i = 1; i <= 2; i++) {
     driver.findElement(By.xpath("//div[3]/div/ul/li["+i+"]/a[1]")).click();
     driver.findElement(By.xpath("//div[5]//table//tr/td/button")).click();
-    driver.wait(34,4);
+    driver.findElement(By.xpath("//div[2]/div[2]/div[1]/nav/ul/li[1]/a")).click();
+  driver.wait();
+
 
    }
+   driver.findElement(By.xpath("//div[2]/div[3]/div/ul/li[3]/a[1]")).click();
+        driver.findElement(By.xpath("//div[5]//table//tr/td/button")).click();
 
-         driver.findElement(By.xpath("//div/header/div[3]/div/a[3]")).click();
-        driver.findElement(By.xpath("//div/ul/li[1]//div/p[5]/button")).click();
-           driver.findElement(By.xpath("//div/ul/li[1]//div/p[4]/button"));
-           driver.findElement(By.xpath("//div/ul/li//div/p[4]/button"));
+        driver.findElement(By.xpath("//div[1]/div/header/div[3]/div/a[3]")).click();
 
     }
 }
