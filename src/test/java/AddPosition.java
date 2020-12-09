@@ -9,10 +9,12 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class AddPosition {
+public class AddPosition<i> {
     public static void main(String[] args) throws IOException {
         System.setProperty("webdriver.gecko.driver", "/home/natali/geckodriver/geckodriver");
         DesiredCapabilities dc = DesiredCapabilities.firefox();
@@ -32,12 +34,16 @@ public class AddPosition {
         button.click();
 
         driver.findElement(By.xpath("//div//tr/td[1]//ul/li[2]/a/span[2]")).click();
-        //tab General
-        int i;
-        for (i=0;i<100; i++) {
+        ArrayList countPosition = new ArrayList();
+        for (int k = 3; k < 14; k++) {
+            countPosition.add(driver.findElement(By.xpath("//div/table//tr/td[3]//tr[" + k + "]/td[3]")));
+        }
+        System.out.println(countPosition.size());
+            //tab General
+
             driver.findElement(By.xpath("//div/table//tr/td[3]/div[1]/a[2]")).click();
             driver.findElement(By.xpath("//div//table//tr[1]/td/label[1]/input")).click();
-            driver.findElement(By.xpath("//div/table//tr/td[3]//table//tr[2]/td/span/input")).sendKeys("test" + i);
+            driver.findElement(By.xpath("//div/table//tr/td[3]//table//tr[2]/td/span/input")).sendKeys("test");
 
             driver.findElement(By.xpath("//div/table//tr/td[3]//div/table//tr[3]/td/input")).sendKeys("19274");
             driver.findElement(By.xpath("//div/table//tr/td[3]//table//tr[8]/td/table//tr/td[1]/input")).sendKeys("34");
@@ -76,10 +82,17 @@ public class AddPosition {
             driver.findElement(By.xpath("//div[4]/table[3]//tr[3]/td[1]/span/input")).sendKeys("87");
 
             driver.findElement(By.xpath("//div/table//tr/td[3]/form/p/span/button[1]")).click();
+
+
+            driver.findElement(By.xpath("//div//tr/td[1]//ul/li[2]/a/span[2]")).click();
+
+
+        ArrayList countPosition1 = new ArrayList();
+        for (int i = 3; i < 14; i++) {
+            countPosition1.add(driver.findElement(By.xpath("//div//tr/td[3]//tr[" + i + "]/td[3]")));
         }
-
-        driver.findElement(By.xpath("//div//tr/td[1]//ul/li[2]/a/span[2]")).click();
-
+        System.out.println(countPosition1.size());
+        Assert.assertNotEquals(countPosition.size(), countPosition1.size());
 
     }
 }

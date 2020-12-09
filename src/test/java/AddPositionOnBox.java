@@ -1,8 +1,11 @@
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,18 +22,21 @@ public class AddPositionOnBox {
         driver.manage().window().maximize();
 
 
-for (int i = 1; i <= 2; i++) {
-    driver.findElement(By.xpath("//div[3]/div/ul/li["+i+"]/a[1]")).click();
-    driver.findElement(By.xpath("//div[5]//table//tr/td/button")).click();
-    driver.findElement(By.xpath("//div[2]/div[2]/div[1]/nav/ul/li[1]/a")).click();
-  driver.wait();
+        driver.findElement(By.xpath("//div[2]/div[3]/div/ul/li[1]/a[1]")).click();
+        driver.findElement(By.xpath("//div[2]/div[5]//table//tr/td/button")).click();
+        WebDriverWait wait = new WebDriverWait(driver, 10/*seconds*/);
+      //  WebElement dynamicElement = (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.id("dynamicElement_id")));
 
-
-   }
-   driver.findElement(By.xpath("//div[2]/div[3]/div/ul/li[3]/a[1]")).click();
+        driver.findElement(By.xpath("//div[2]/div[3]/div/ul/li[2]/a[1]")).click();
         driver.findElement(By.xpath("//div[5]//table//tr/td/button")).click();
+        WebDriverWait wait1 = new WebDriverWait(driver, 10/*seconds*/);
 
-        driver.findElement(By.xpath("//div[1]/div/header/div[3]/div/a[3]")).click();
+        driver.findElement(By.xpath("//div[2]/div[3]/div/ul/li[4]/a[1]")).click();
+        driver.findElement(By.xpath("//div[2]/div[5]//table//tr/td/button")).click();
+        WebDriverWait wait2 = new WebDriverWait(driver, 10/*seconds*/);
+
+        driver.findElement(By.xpath("//div/header/div[3]/div/a[3]")).click();
+
 
     }
 }

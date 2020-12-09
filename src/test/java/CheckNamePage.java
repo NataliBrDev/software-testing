@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -44,12 +44,13 @@ public class CheckNamePage {
 
 //g
         Assert.assertEquals(driver.findElement(By.xpath("//div[2]/div[2]/strong")).getCssValue("color"),"rgb(204, 0, 0)");
+      //  driver.findElement(By.xpath("//div[2]/div[2]/strong")).getColor();
         Assert.assertEquals(driver.findElement(By.xpath("//div[2]/div[2]/strong")).getCssValue("color"),"rgb(204, 0, 0)");
 
 
 //d
        Assert.assertEquals( driver.findElement(By.xpath("//div[2]/div[2]/strong")).getCssValue("color"),"rgb(204, 0, 0)");
-       Assert.assertEquals(driver.findElement(By.xpath("//div[2]/div[2]/strong")).getCssValue("font-weight"),"700");
+       Assert.assertEquals(driver.findElement(By.xpath("//div[2]/div[2]/strong")).getCssValue("font-size"),"22px");
 
 
     }
