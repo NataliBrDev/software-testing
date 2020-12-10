@@ -35,8 +35,8 @@ public class TestGeozone {
         button.click();
         driver.findElement(By.xpath("//div[3]/ul/li[3]/a/span[2]")).click();
 
-        driver.findElement(By.xpath("//div//tr/td[3]//tr[1]/td[5]")).click();
-       ArrayList<String> countriesList = new ArrayList<>();
+        //driver.findElement(By.xpath("//div//tr/td[3]//tr[1]/td[5]")).click();
+        ArrayList<String> countriesList = new ArrayList<>();
         for (int i = 1; i < 239; i++) {
             String country = driver.findElement(By.xpath("//div//tr/td[3]//tr[" + i + "]/td[5]/a")).getText();
             System.out.println(country);
@@ -54,8 +54,17 @@ public class TestGeozone {
         assertTrue(countriesList.equals(countriesListCopy));
         countriesList.forEach((x) -> System.out.println(x));
 
-driver.quit();
-    }
-}
+        driver.quit();
+
+
+        ArrayList country = new ArrayList();
+        for (int n = 2; n <= 239; n++) {
+
+          country.add(driver.findElement(By.xpath("//div//tr/td[3]//tr["+n+"]")));
+            driver.findElement(By.xpath("//div//tr/td[3]//tr["+n+"]/td[6]")).getText();
+          //  if
+
+        }
+    }}
 
 

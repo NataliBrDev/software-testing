@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class AddPosition<i> {
@@ -34,11 +35,10 @@ public class AddPosition<i> {
         button.click();
 
         driver.findElement(By.xpath("//div//tr/td[1]//ul/li[2]/a/span[2]")).click();
-        ArrayList countPosition = new ArrayList();
-        for (int k = 3; k < 14; k++) {
-            countPosition.add(driver.findElement(By.xpath("//div/table//tr/td[3]//tr[" + k + "]/td[3]")));
-        }
-        System.out.println(countPosition.size());
+
+
+        List<WebElement> rows = driver.findElements(By.xpath("//div/table//tr/td[3]/form/table/tbody//tr"));
+
             //tab General
 
             driver.findElement(By.xpath("//div/table//tr/td[3]/div[1]/a[2]")).click();
@@ -85,14 +85,12 @@ public class AddPosition<i> {
 
 
             driver.findElement(By.xpath("//div//tr/td[1]//ul/li[2]/a/span[2]")).click();
+            List<WebElement> rows1 = driver.findElements(By.xpath("//div/table//tr/td[3]/form/table/tbody//tr"));
 
 
-        ArrayList countPosition1 = new ArrayList();
-        for (int i = 3; i < 14; i++) {
-            countPosition1.add(driver.findElement(By.xpath("//div//tr/td[3]//tr[" + i + "]/td[3]")));
-        }
-        System.out.println(countPosition1.size());
-        Assert.assertNotEquals(countPosition.size(), countPosition1.size());
+
+
+            Assert.assertNotEquals(rows.size(), rows1.size());
 
     }
 }
