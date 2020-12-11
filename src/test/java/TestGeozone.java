@@ -1,4 +1,5 @@
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
@@ -35,36 +37,35 @@ public class TestGeozone {
         button.click();
         driver.findElement(By.xpath("//div[3]/ul/li[3]/a/span[2]")).click();
 
-        //driver.findElement(By.xpath("//div//tr/td[3]//tr[1]/td[5]")).click();
-        ArrayList<String> countriesList = new ArrayList<>();
-        for (int i = 1; i < 239; i++) {
-            String country = driver.findElement(By.xpath("//div//tr/td[3]//tr[" + i + "]/td[5]/a")).getText();
-            System.out.println(country);
-            countriesList.add(country);
-            driver.findElement(By.xpath("//div//tr/td[3]//tr[" + i + "]/td[5]")).click();
+         List<WebElement> countries = driver.findElements(By.xpath("//div/table/tbody//table//tr/td[5]//a"));
+         for (var elem : countries) {
+            System.out.println(elem.getText());
+         }
+         Assert.assertTrue(String.valueOf(countries.stream().sorted()), true);
 
-            String num = driver.findElement(By.xpath("//div//tr/td[3]//tr[" + i + "]/td[6]")).getText();
-            int internalN = Integer.parseInt(num);
-            if (internalN > 0) {
-                driver.findElement(By.xpath("//div//tr/td[3]//tr[" + i + "]/td[5]")).click();
+
+         List<WebElement> zones = driver.findElements(By.xpath("//div/table/tbody//table//tr/td[6]"));
+         for (int i = 0; i < zones.size(); i++) {
+            System.out.println(zones.get(i).getText());
+            var count = Integer.parseInt(zones.get(i).getText());
+            if (count > 0) {
+                countries.get(i).click();
             }
         }
-        ArrayList<String> countriesListCopy = new ArrayList<>(countriesList);
-        Collections.sort(countriesListCopy);
-        assertTrue(countriesList.equals(countriesListCopy));
-        countriesList.forEach((x) -> System.out.println(x));
+
+             List<WebElement> zones1 =driver.findElements(By.xpath("//div//tr/td[3]/form/table[2]//tbody/tr[2]/td[3]"));
+             for (var elem1 : zones1){
+                 System.out.println(elem1.getText());
+             }
+             Assert.assertTrue(String.valueOf(zones1.stream().sorted()), true);
+
+
+
 
         driver.quit();
 
 
-        ArrayList country = new ArrayList();
-        for (int n = 2; n <= 239; n++) {
-
-          country.add(driver.findElement(By.xpath("//div//tr/td[3]//tr["+n+"]")));
-            driver.findElement(By.xpath("//div//tr/td[3]//tr["+n+"]/td[6]")).getText();
-          //  if
-
         }
-    }}
+    }
 
 
